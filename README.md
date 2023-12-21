@@ -64,9 +64,28 @@ php artisan key:generate
 
 npm install
 
+# creo il database da phpmyadmin
+
 # inserisco i dati per il collegamento al db in env
 
-# creo il database da phpmyadmin
+
+
+#creo migration
+php artisan make:migration create_nome_tabella_table
+php artisan make:migration update_users_table --table=users
+php artisan make:migration add_phone_number_to_users_table
+
+#lanciare migration
+php artisan migrate
+
+#revert migration
+php artisan migrate:rollback
+
+#popolare il db
+php artisan make:seeder UsersTableSeeder
+
+php artisan db:seed --class=usersSeeder
+
 
 
 # preparo le rotte file web.php es. 
